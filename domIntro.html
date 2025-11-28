@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="title">Student Profile</h2>
+    <div id="profile">
+      <p id="name">Name: ____________</p>
+      <p id="course">Course: ___________</p>
+      <p id="city">City: _____________</p>
+
+      <h3>About:</h3>
+      <p id="about">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+        quisquam mollitia inventore repellat praesentium! Suscipit ut a unde,
+        saepe maiores accusamus quaerat adipisci officiis quam omnis placeat,
+        quo quod soluta!
+      </p>
+    </div>
+
+    <script>
+      // Main Heading
+      let title = document.getElementById("title");
+      title.innerText = "Frontend Developer Profile";
+      title.style.color = "blue";
+
+      // Details
+      let name = document.getElementById("name");
+      name.innerText = "Likhith";
+      name.style.color = "green";
+      name.style.fontWeight = "bold";
+
+      let course = document.getElementById("course");
+      course.innerText = "Full Stack Development";
+      course.style.color = "green";
+      course.style.fontWeight = "bold";
+
+      let city = document.getElementById("city");
+      city.innerText = "Hyderabad";
+      city.style.color = "green";
+      city.style.fontWeight = "bold";
+
+      //About
+      let about = document.getElementById("about");
+      about.textContent =
+        "Passionate frontend developer learning DOM, JS, and UI design";
+      about.style.backgroundColor = "yellow";
+
+      //Profile
+      let profile = document.getElementById("profile");
+      profile.style.border = "2px solid black";
+      profile.style.padding = "10px";
+    </script>
+  </body>
+</html>
