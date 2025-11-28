@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 100px;
+      margin-bottom: 50px;
+    }
+
+    .text {
+      font-family: Arial;
+    }
+
+    button {
+      margin: 8px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+
+    #bird-img {
+      height: 300px;
+      width: 200px;
+      margin: 30px;
+      display: none;
+    }
+
+    h1 {
+      margin-top: 50px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <p class="text">This is paragraph 1</p>
+      <p class="text">This is paragraph 2</p>
+      <p class="text">This is paragraph 3</p>
+      <p class="text">This is paragraph 4</p>
+      <p class="text">This is paragraph 5</p>
+    </div>
+    <button id="btn1" onclick="changeBackground()">Button 1</button>
+    <button id="btn2" onclick="showBird()">Button 2</button>
+    <button id="btn3" onclick="changeTextColor()">Button 3</button>
+    <button id="btn4" onclick="create()">Button 4</button>
+
+    <img
+      id="bird-img"
+      src="https://www.birds.cornell.edu/home/wp-content/uploads/2023/09/334289821-Baltimore_Oriole-Matthew_Plante.jpg"
+    />
+    <script>
+      //Button 1
+      let btnOne = document.getElementById("btn1");
+      function changeBackground() {
+        document.body.style.backgroundColor = "#8d99ae";
+      }
+
+      //Button 2
+      let btnTwo = document.getElementById("btn2");
+      function showBird() {
+        let bird = document.getElementById("bird-img");
+        bird.style.display = "block";
+      }
+
+      //Button 3
+      let btnThree = document.getElementById("btn3");
+      function changeTextColor() {
+        let text = document.getElementsByClassName("text");
+        for (let t of text) {
+          t.style.color = "#d90429";
+          t.style.fontFamily = "Georgia";
+        }
+      }
+
+      //Button 4
+      let btnfour = document.getElementById("btn4");
+      function create() {
+        let h1 = document.querySelector("h1"); // get first h1
+
+        if (!h1) {
+          // if no h1 exists
+          const newH1 = document.createElement("h1");
+          newH1.innerText = "Welcome To DOM Task!";
+          document.body.prepend(newH1);
+        }
+      }
+    </script>
+  </body>
+</html>
