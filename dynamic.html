@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Boxes</title>
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        margin-top: 100px;
+        background-color: #edf2f4;
+        height: 450px;
+        width: 600px;
+        padding: 30px;
+        border-radius: 15px;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      button {
+        font-size: large;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 15px;
+        color: white;
+      }
+
+      #red {
+        background-color: #e63946;
+      }
+      #green {
+        background-color: #40916c;
+      }
+      #blue {
+        background-color: #0077b6;
+      }
+      #yellow {
+        background-color: #f9dc5c;
+        color: black;
+      }
+      #pink {
+        background-color: #ffc2d1;
+        color: black;
+      }
+      #black {
+        background-color: #000000;
+      }
+      #clear {
+        background-color: #e5e5e5;
+        color: black;
+      }
+
+      h1 {
+        margin-top: 50px;
+      }
+
+      .box {
+        height: 120px;
+        width: 120px;
+        border-radius: 12px;
+        display: inline-block;
+        margin-right: 15px;
+        position: relative;
+      }
+
+      .deleteBtn {
+        position: absolute;
+        right: 8px;
+        top: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        color: white;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="buttons">
+        <button id="red" onclick="createBox('#e63946')">Red</button>
+        <button id="green" onclick="createBox('#40916c')">Green</button>
+        <button id="blue" onclick="createBox('#0077b6')">Blue</button>
+        <button id="yellow" onclick="createBox('#f9dc5c')">Yellow</button>
+        <button id="pink" onclick="createBox('#ffc2d1')">Pink</button>
+        <button id="black" onclick="createBox('#000000')">Black</button>
+        <button id="clear" onclick="clearAll()">Clear All</button>
+      </div>
+
+      <h1>Boxes Area:</h1>
+
+      <div id="boxes"></div>
+    </div>
+
+    <script>
+      function createBox(color) {
+        let boxArea = document.getElementById("boxes");
+
+        let box = document.createElement("div");
+        box.className = "box";
+        box.style.backgroundColor = color;
+        box.style.marginTop = "20px";
+        box.style.marginLeft = "10px";
+
+        let del = document.createElement("span");
+        del.className = "deleteBtn";
+        del.innerHTML = "✖";
+
+        del.setAttribute("onclick", "deleteBox(this)");
+
+        box.appendChild(del);
+        boxArea.appendChild(box);
+      }
+
+      function deleteBox(delBtn) {
+        let box = delBtn.parentNode;
+        let boxArea = document.getElementById("boxes");
+        boxArea.removeChild(box);
+      }
+
+      function clearAll() {
+        let boxArea = document.getElementById("boxes");
+
+        while (boxArea.firstChild) {
+          boxArea.removeChild(boxArea.firstChild);
+        }
+      }
+    </script>
+  </body>
+</html>
