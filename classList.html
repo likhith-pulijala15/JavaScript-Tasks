@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #box {
+        height: 200px;
+        width: 200px;
+        margin-top: 200px;
+        margin-bottom: 50px;
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .black {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="box">Box</div>
+      <button onclick="addRed()">Add Red</button>
+      <button onclick="removeRed()">Remove Red</button>
+      <button onclick="toggleBlack()">Toggle Dark Mode</button>
+    </div>
+
+    <script>
+      let box = document.getElementById("box");
+
+      function addRed() {
+        box.classList.add("red");
+      }
+
+      function toggleBlack() {
+        box.classList.toggle("black");
+      }
+
+      function removeRed() {
+        box.classList.remove("red");
+      }
+    </script>
+  </body>
+</html>
