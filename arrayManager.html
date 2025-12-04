@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    #input {
+      margin-top: 20px;
+      background-color: #a8dadc;
+      color: black;
+      border: none;
+    }
+
+    #input,
+    button {
+      width: 90%;
+      padding: 10px;
+      border-radius: 15px;
+      font-size: 18px;
+    }
+    .container {
+      height: 300px;
+      width: 300px;
+      margin-top: 200px;
+      padding: 20px 100px;
+      border-radius: 15px;
+      background-color: #f1faee;
+      box-shadow: 6px 6px 15px #c5c5c5, -6px -6px 12px #ffffff;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    button {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #output {
+      margin-top: 40px;
+      height: 30px;
+      padding: 10px;
+      border-radius: 15px;
+      font-size: 22px;
+      background-color: #1d3557;
+      color: white;
+      border: none;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <input id="input" type="text" placeholder="Enter " />
+      <div class="row">
+        <button onclick="addFirst()">Add First</button>
+        <button onclick="addLast()">Add Last</button>
+      </div>
+
+      <div class="row">
+        <button onclick="deleteFirst()">Delete First</button>
+        <button onclick="deleteLast()">Delete Last</button>
+      </div>
+
+      <p id="output"></p>
+    </div>
+
+    <script>
+      var items = [];
+
+      function display() {
+        document.getElementById("output").innerHTML = items.join(", ");
+      }
+
+      function addFirst() {
+        let value = document.getElementById("input").value;
+        if (value === "") return;
+        items.unshift(value);
+        display();
+        document.getElementById("input").value = "";
+      }
+
+      function addLast() {
+        let value = document.getElementById("input").value;
+        if (value === "") return;
+        items.push(value);
+        display();
+        document.getElementById("input").value = "";
+      }
+
+      function deleteFirst() {
+        items.shift();
+        display();
+      }
+
+      function deleteLast() {
+        items.pop();
+        display();
+      }
+    </script>
+  </body>
+</html>
