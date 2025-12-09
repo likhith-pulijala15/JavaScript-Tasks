@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: black;
+      }
+
+      h1 {
+        color: #ffffff;
+      }
+
+      button {
+        margin-bottom: 50px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: none;
+      }
+
+      #output {
+        display: block;
+      }
+
+      .card {
+        width: 320px;
+        padding: 15px;
+        margin: 15px;
+        border-radius: 10px;
+        background: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        font-family: Arial;
+      }
+      .skills {
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Student Details</h1>
+    <div class="container">
+      <button onclick="showDetails()">Show Students</button>
+      <br />
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+      let students = [
+        {
+          name: "Likhith",
+          age: 22,
+          marks: 95,
+          skills: ["Java", "Python", "MySQL", "JavaScript"],
+
+          address: {
+            city: "Hyderabad",
+            pincode: 500016,
+          },
+        },
+
+        {
+          name: "Maheshwar",
+          age: 22,
+          marks: 94,
+          skills: ["Python", "MySQL", "HTML", "CSS"],
+          address: {
+            city: "Hyderabad",
+            pincode: 590001,
+          },
+        },
+      ];
+
+      function showDetails() {
+        let output = document.getElementById("output");
+        output.innerHTML = "";
+
+        for (let i in students) {
+          let student = students[i];
+
+          let card = document.createElement("div");
+          card.className = "card";
+
+          let skillsHTML = "";
+          for (let skill of student.skills) {
+            skillsHTML += `<li>${skill}</li>`;
+          }
+
+          card.innerHTML = `
+          <h2>${student.name}</h2>
+          <p><b>Age:</b> ${student.age}</p>
+          <p><b>Marks:</b> ${student.marks}</p>
+
+          <p><b>Skills:</b></p>
+          <ul class="skills">${skillsHTML}</ul>
+
+          <p><b>Address:</b></p>
+          <p>City: ${student.address.city}</p>
+          <p>Pincode: ${student.address.pincode}</p>
+        `;
+
+          output.appendChild(card);
+        }
+      }
+    </script>
+  </body>
+</html>
