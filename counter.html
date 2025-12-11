@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+        background-color: #e5e5e5;
+      }
+
+      #output {
+        width: 250px;
+        height: 250px;
+        border-radius: 15px;
+        background-color: #14213d;
+        color: white;
+        margin: 200px auto 50px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 12px 28px rgba(20, 33, 61, 0.25),
+          0 2px 6px rgba(0, 0, 0, 0.12);
+      }
+
+      button {
+        padding: 5px 15px;
+        margin-left: 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 12px 28px rgba(20, 33, 61, 0.25),
+          0 2px 6px rgba(0, 0, 0, 0.12);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="output">
+      <h1>Counter</h1>
+    </div>
+    <br />
+    <button id="start" onclick="startCount()">Start</button>
+    <button id="end" onclick="stopCount()">Stop</button>
+    <script>
+      let output = document.getElementById("output");
+      let counter = null;
+      let x = 0;
+
+      function startCount() {
+        if (counter !== null) return;
+        counter = setInterval(() => {
+          output.innerHTML = `<h2>Count: ${x}</h2>`;
+
+          x++;
+        }, 1000);
+      }
+
+      function stopCount() {
+        clearInterval(counter);
+        counter = null;
+        x = 0;
+        output.innerHTML = `<h1>Counter</h1>`;
+      }
+    </script>
+  </body>
+</html>
