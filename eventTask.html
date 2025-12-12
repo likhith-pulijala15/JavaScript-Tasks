@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 300px;
+        width: 500px;
+        margin: 200px auto;
+        background-color: black;
+        color: white;
+        border-radius: 15px;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      input {
+        padding: 20px 30px;
+        border-radius: 15px;
+        border: none;
+        margin-bottom: 20px;
+      }
+
+      p {
+        height: 30px;
+        width: 120px;
+        background-color: white;
+        color: black;
+        padding: 10px;
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input id="type-area" type="text" />
+      <p id="display"></p>
+    </div>
+    <script>
+      let input = document.getElementById("type-area");
+      let display = document.getElementById("display");
+
+      input.addEventListener("keydown", () => {
+        display.innerText = "Typing...";
+      });
+
+      input.addEventListener("keyup", () => {
+        display.innerText = input.value;
+      });
+
+      document.addEventListener("click", (e) => {
+        display.innerText = `You clicked at ${e.clientX}, ${e.clientY}`;
+      });
+
+      window.addEventListener("resize", () => {
+        display.innerText = `Width: ${window.innerWidth}, Height: ${window.innerHeight}`;
+      });
+    </script>
+  </body>
+</html>
